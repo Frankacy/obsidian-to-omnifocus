@@ -7,7 +7,7 @@ export interface TasksToOmnifocusSettings {
 
 export const DEFAULT_SETTINGS: TasksToOmnifocusSettings = {
 	markComplete: true,
-	autosave: true,
+	displayQuickEntry: true,
 };
 
 export class TasksToOmnifocusSettingTab extends PluginSettingTab {
@@ -45,7 +45,7 @@ export class TasksToOmnifocusSettingTab extends PluginSettingTab {
 				toggle
 					.setValue(this.plugin.settings.autosave)
 					.onChange(async (value) => {
-						this.plugin.settings.autosave = value;
+						this.plugin.settings.displayQuickEntry = value;
 						await this.plugin.saveSettings();
 					})
 			);

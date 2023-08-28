@@ -57,9 +57,10 @@ export default class TasksToOmnifocus extends Plugin {
 				let noteURL = view.file.path.replace(/ /g, "%20").replace(/\//g, "%2F");
 				let vaultName = app.vault.getName();
 				let taskNoteEncoded = encodeURIComponent("obsidian://open?=" + vaultName + "&file=" + noteURL);
+				let autosave = !this.settings.displayQuickEntry
 
 				window.open(
-					`omnifocus:///add?name=${taskNameEncoded}&note=${taskNoteEncoded}`
+					`omnifocus:///add?name=${taskNameEncoded}&note=${taskNoteEncoded}&autosave=${autosave}`
 				);
 			}
 
